@@ -10,22 +10,22 @@ export function Hero() {
   return (
     <div className="w-full flex flex-col items-center bg-bg-primary text-text-primary px-4 sm:px-6 lg:px-8 relative">
       {/* Curved Top Tab Badge */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center w-[300px] h-[36px]">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center w-[360px] h-[36px]">
         <svg
-          viewBox="0 0 300 36"
+          viewBox="0 0 360 36"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="absolute inset-0 w-full h-full text-[#232326] dark:text-[#18181A]"
         >
           <path
-            d="M 0 0 C 30 0 30 36 60 36 L 240 36 C 270 36 270 0 300 0 Z"
+            d="M 0 0 C 45 0 45 36 90 36 L 270 36 C 315 36 315 0 360 0 Z"
             fill="currentColor"
           />
         </svg>
         <div className="relative z-10 flex items-center gap-2 pb-1.5">
           <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse shrink-0"></span>
           <span className="text-[#ECEBE8] text-xs font-semibold tracking-wide select-none">
-            Available for New Projects
+            Available to work!
           </span>
         </div>
       </div>
