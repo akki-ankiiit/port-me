@@ -1,17 +1,25 @@
 import avatarDesigner from "../assets/avatar_designer.png";
 import avatarLaptop from "../assets/avatar_laptop.png";
 import avatarSelfie from "../assets/avatar_selfie.png";
+import stickerPhone from "../assets/sticker_phone.png";
+import stickerLondon from "../assets/sticker_london.png";
 
 export function Hero() {
-  const navItems = ["Home", "Works", "Services", "About", "Projects"];
+  const navItems = ["Works", "Services", "About", "Blog"];
 
   return (
-    <div className="w-full flex flex-col items-center bg-bg-primary text-text-primary px-4 sm:px-6 lg:px-8">
+    <div className="w-full flex flex-col items-center bg-bg-primary text-text-primary px-4 sm:px-6 lg:px-8 relative">
+      {/* Floating Badge (Centered at top of header) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex items-center gap-2 px-4 py-1.5 bg-[#232326] text-white rounded-full text-[10px] font-semibold tracking-wide border border-white/10 shadow-lg">
+        <span className="w-2 h-2 rounded-full bg-[#4E9F3D] animate-pulse shrink-0"></span>
+        <span>Available for New Projects</span>
+      </div>
+
       {/* Top Navigation */}
-      <header className="w-full max-w-7xl h-20 flex justify-between items-center border-b border-text-primary/5">
+      <header className="w-full max-w-7xl h-20 flex justify-between items-center border-b border-text-primary/5 relative">
         {/* Logo */}
-        <div className="text-2xl font-extrabold tracking-tight">
-          Ankit<span className="text-accent-orange">.</span>
+        <div className="text-3xl font-black tracking-tight text-accent-orange">
+          Agero.
         </div>
 
         {/* Links */}
@@ -20,68 +28,67 @@ export function Hero() {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className={`hover:text-text-primary transition-colors ${
-                item === "Home" ? "text-accent-orange font-bold" : ""
-              }`}
+              className="hover:text-text-primary transition-colors font-bold"
             >
               {item}
             </a>
           ))}
         </nav>
 
-        {/* Connect Button */}
+        {/* Contact Button */}
         <a
           href="#contact"
-          className="px-6 py-2 bg-text-primary text-bg-primary rounded-full text-sm font-semibold hover:bg-accent-orange transition-all duration-300 shadow-md hover:shadow-lg"
+          className="px-6 py-2 bg-[#2D2D30] text-[#ECEBE8] rounded-full text-sm font-semibold hover:bg-accent-orange transition-all duration-300 shadow-md hover:shadow-lg"
         >
-          Connect
+          Contact
         </a>
       </header>
 
       {/* Main Hero Container */}
       <main className="w-full max-w-7xl flex flex-col items-center pt-16 md:pt-24 pb-12">
         {/* Trusted By Founders Pill */}
-        <div className="flex items-center gap-2 px-4 py-1.5 bg-bg-secondary rounded-full border border-text-primary/5 text-xs font-semibold text-text-secondary shadow-sm mb-8">
+        <div className="flex items-center gap-2 px-4 py-1.5 bg-[#E3E2DE] dark:bg-[#1E1E21] rounded-full border border-text-primary/5 text-xs font-semibold text-text-secondary shadow-sm mb-8">
           <div className="flex -space-x-2">
             <img src={avatarSelfie} alt="Founder 1" className="w-5 h-5 rounded-full border border-bg-primary object-cover" />
             <img src={avatarDesigner} alt="Founder 2" className="w-5 h-5 rounded-full border border-bg-primary object-cover" />
             <img src={avatarSelfie} alt="Founder 3" className="w-5 h-5 rounded-full border border-bg-primary object-cover" />
           </div>
-          <span>Trusted by Founders</span>
+          <span className="text-[#333333] dark:text-[#CCCCCC]">Trusted by founders.</span>
         </div>
 
         {/* Big Heading */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-center leading-[1.15] max-w-6xl">
-          <span>Hello I'm Ankit </span>
-          <span className="inline-flex items-center align-middle mx-1 md:mx-2 bg-accent-orange p-1 rounded-full w-10 h-10 md:w-16 md:h-16 overflow-hidden border border-text-primary/10 hover:scale-110 transition-transform duration-300">
-            <img src={avatarDesigner} alt="Designer avatar" className="w-full h-full object-cover rounded-full" />
+        <h1 className="text-4xl sm:text-6xl md:text-[5rem] font-extrabold tracking-tight text-center leading-[1.2] max-w-6xl">
+          <span className="text-text-primary">Effortless </span>
+          <span className="inline-flex items-center align-middle mx-1 md:mx-2 bg-transparent rounded-[2rem] w-12 h-18 md:w-16 md:h-24 overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+            <img src={stickerPhone} alt="Phone UI sticker" className="w-full h-full object-cover" />
           </span>
-          <span className="text-accent-orange"> Lead UX Designer</span>
-          <br className="hidden sm:inline" />
-          <span> for </span>
-          <span className="inline-flex items-center justify-center align-middle mx-1 md:mx-2 bg-[#2D283E] px-3 py-1 rounded-full w-16 h-10 md:w-24 md:h-14 overflow-hidden border border-text-primary/10 hover:scale-110 transition-transform duration-300">
-            <img src={avatarLaptop} alt="Laptop avatar" className="w-full h-full object-cover rounded-full scale-110" />
+          <span className="text-accent-orange"> Design</span>
+          <br />
+          <span className="text-text-secondary/60">for </span>
+          <span className="inline-flex items-center justify-center align-middle mx-1 md:mx-2 bg-[#2D283E] px-1 rounded-full w-16 h-10 md:w-24 md:h-14 overflow-hidden border border-text-primary/10 hover:scale-105 transition-transform duration-300 shadow-md">
+            <img src={avatarLaptop} alt="Laptop sticker" className="w-full h-full object-cover rounded-full scale-105" />
           </span>
-          <span> Design Startups </span>
-          <br className="hidden sm:inline" />
-          <span> based in London, </span>
-          <span className="inline-flex items-center align-middle mx-1 md:mx-2 bg-text-primary p-1 rounded-full w-10 h-10 md:w-16 md:h-16 overflow-hidden border border-text-primary/10 hover:scale-110 transition-transform duration-300">
-            <img src={avatarSelfie} alt="Selfie avatar" className="w-full h-full object-cover rounded-full" />
+          <span className="text-text-primary"> Design Startups</span>
+          <br />
+          <span className="text-text-secondary/70">based in London, </span>
+          <span className="inline-flex items-center align-middle mx-1 md:mx-2 bg-transparent rounded-full w-10 h-10 md:w-16 md:h-16 overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+            <img src={stickerLondon} alt="London Big Ben sticker" className="w-full h-full object-cover rounded-full" />
           </span>
-          <span> UK</span>
+          <span className="text-text-primary"> UK</span>
         </h1>
 
         {/* Subtitle / Paragraph */}
         <p className="mt-8 font-sans text-base sm:text-lg text-text-secondary/80 text-center max-w-3xl leading-relaxed px-4">
-          I'm Ankit Chandrakar, a Product Designer focused on UI/UX, product thinking, brand systems, and AI-driven design. I create modern digital experiences that are visually refined, easy to use, and built with real business impact in mind.
+          We make it easy for startups to launch, grow, and scale with clean,<br className="hidden sm:inline" />
+          conversion focused designs — no delays, no drama.
         </p>
 
-        {/* View Projects CTA */}
+        {/* View Plans CTA */}
         <a
-          href="#works"
+          href="#plans"
           className="mt-8 px-8 py-3.5 bg-[#252528] text-white rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-accent-orange transition-all duration-300 hover:gap-3 shadow-md hover:shadow-xl"
         >
-          <span>View Projects</span>
+          <span>View Plans</span>
           <span className="text-xs">➔</span>
         </a>
 
