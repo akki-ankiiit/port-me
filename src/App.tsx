@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 import { Globe, PenTool, Layout, Compass } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 // Component imports
 import { CustomCursor } from "@/components/CustomCursor";
@@ -20,6 +21,35 @@ import { Toolbox } from "@/components/Toolbox";
 import { Footer } from "@/components/Footer";
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+    checkTheme();
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  const activeColor = isDark ? "rgba(245, 245, 245, 1)" : "rgba(17, 17, 17, 1)";
+  const inactiveColor = isDark ? "rgba(245, 245, 245, 0.15)" : "rgba(17, 17, 17, 0.15)";
+
+  const transitionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: transitionRef,
+    offset: ["start end", "center center"]
+  });
+
+  const color1 = useTransform(scrollYProgress, [0.2, 0.5], [inactiveColor, activeColor]);
+  const color2 = useTransform(scrollYProgress, [0.5, 0.75], [inactiveColor, activeColor]);
+  const color3 = useTransform(scrollYProgress, [0.75, 0.95], [inactiveColor, activeColor]);
+
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
@@ -76,18 +106,20 @@ function App() {
         <SlantedMarquee />
 
         {/* Transition Section: (hello) & We Help Startups... */}
-        <section className="w-full bg-bg-primary pt-24 pb-12 px-4 flex flex-col items-center justify-center relative overflow-hidden">
+        <section ref={transitionRef} className="w-full bg-bg-primary pt-24 pb-12 px-4 flex flex-col items-center justify-center relative overflow-hidden">
           {/* (hello) */}
           <span className="font-script text-4xl md:text-5xl text-accent-orange select-none mb-6">
             (hello)
           </span>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-sans font-semibold text-text-primary tracking-normal text-center leading-[1.25] md:leading-[56px] max-w-4xl px-4">
-            We help fast moving digital startups<br />
-            <span className="md:whitespace-nowrap">launch sharper brands and websites —</span><br />
-            with clarity <span className="text-[#727272] dark:text-[#909090]">, speed, and no drama.</span>
-          </h2>
+          <div className="max-w-4xl mx-auto text-center px-4">
+            <h2 className="font-sans text-[32px] sm:text-[40px] md:text-[48px] leading-[1.2] md:leading-[56px] tracking-tight font-semibold text-text-primary flex flex-wrap justify-center gap-[0.25em]">
+              <motion.span style={{ color: color1 }}>We help fast moving digital startups</motion.span>
+              <motion.span style={{ color: color2 }}>launch sharper brands and websites —</motion.span>
+              <motion.span style={{ color: color3 }}>with clarity, speed, and no drama.</motion.span>
+            </h2>
+          </div>
 
           {/* Chips Grid */}
           <div className="flex flex-col gap-3 mt-12 items-center justify-center w-full max-w-3xl px-4">
