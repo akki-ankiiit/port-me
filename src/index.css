@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", var(--font-serif), ui-serif, Georgia, serif;
+  --font-script: "Caveat", var(--font-script), cursive;
+  --font-pixel: "Space Mono", var(--font-pixel), monospace;
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-green: var(--accent-green);
+  --color-accent-red: var(--accent-red);
+  --color-accent-gold: var(--accent-gold);
+}
+
+:root {
+  /* Light Mode - Matching the cool gray/beige in the landing page screenshot */
+  --bg-primary: #ECEBE8;
+  --bg-secondary: #E3E2DE;
+  --bg-tertiary: #DAD8D4;
+
+  --text-primary: #111111;
+  --text-secondary: #333333;
+
+  --accent-orange: #FF5A1F; /* Vivid orange from the screenshot */
+  --accent-green: #5D6A50;
+  --accent-red: #E03D1B;
+  --accent-gold: #B4975A;
+}
+
+.dark {
+  /* Dark Mode */
+  --bg-primary: #0F0F10;
+  --bg-secondary: #171717;
+  --bg-tertiary: #1F1F1F;
+
+  --text-primary: #F5F5F5;
+  --text-secondary: #CCCCCC;
+
+  --accent-orange: #FF733F;
+  --accent-green: #7C8B70;
+  --accent-red: #FF4D4D;
+  --accent-gold: #A78A62;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-family: "Outfit", sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--bg-tertiary);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: var(--bg-secondary);
+}
+
+/* Text outline utility */
+.text-stroke {
+  -webkit-text-stroke: 1px var(--text-primary);
+  color: transparent;
+}
+
+/* Custom marquee animations */
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 25s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 25s linear infinite;
+}
+
+/* Smooth scrolling via lenis */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis-stopped {
+  overflow: hidden;
+}
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
