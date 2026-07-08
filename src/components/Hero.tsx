@@ -3,6 +3,7 @@ import avatarLaptop from "../assets/avatar_laptop.png";
 import avatarSelfie from "../assets/avatar_selfie.png";
 import stickerPhone from "../assets/sticker_phone.png";
 import stickerLondon from "../assets/sticker_london.png";
+import heroSticker1 from "../assets/hero_sticker_1.svg";
 
 export function Hero() {
   const navItems = ["Works", "Services", "About", "Blog"];
@@ -74,8 +75,8 @@ export function Hero() {
         {/* Big Heading */}
         <h1 className="text-4xl sm:text-6xl md:text-[5rem] font-semibold tracking-tight text-center leading-[1.2] max-w-6xl">
           <span className="text-text-primary">Effortless </span>
-          <span className="inline-flex items-center align-middle mx-1 md:mx-2 bg-transparent rounded-[2rem] w-12 h-18 md:w-16 md:h-24 overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
-            <img src={stickerPhone} alt="Phone UI sticker" className="w-full h-full object-cover" />
+          <span className="inline-flex items-center align-middle mx-1 md:mx-2 bg-transparent rounded-full w-14 h-11 sm:w-20 sm:h-16 md:w-[82px] md:h-[64px] overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
+            <img src={heroSticker1} alt="hero-image" className="w-full h-full object-cover rounded-full" />
           </span>
           <span className="text-accent-orange"> Design</span>
           <br />
