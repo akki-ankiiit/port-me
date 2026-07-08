@@ -9,21 +9,36 @@ export function Hero() {
 
   return (
     <div className="w-full flex flex-col items-center bg-bg-primary text-text-primary px-4 sm:px-6 lg:px-8 relative">
-      {/* Floating Badge (Centered at top of header) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex items-center gap-2 px-4 py-1.5 bg-[#232326] text-white rounded-full text-[10px] font-semibold tracking-wide border border-white/10 shadow-lg">
-        <span className="w-2 h-2 rounded-full bg-[#4E9F3D] animate-pulse shrink-0"></span>
-        <span>Available for New Projects</span>
+      {/* Curved Top Tab Badge */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center w-[300px] h-[36px]">
+        <svg
+          viewBox="0 0 300 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute inset-0 w-full h-full text-[#232326] dark:text-[#18181A]"
+        >
+          <path
+            d="M 0 0 C 30 0 30 36 60 36 L 240 36 C 270 36 270 0 300 0 Z"
+            fill="currentColor"
+          />
+        </svg>
+        <div className="relative z-10 flex items-center gap-2 pb-1.5">
+          <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse shrink-0"></span>
+          <span className="text-[#ECEBE8] text-xs font-semibold tracking-wide select-none">
+            Available for New Projects
+          </span>
+        </div>
       </div>
 
       {/* Top Navigation */}
-      <header className="w-full max-w-7xl h-20 flex justify-between items-center border-b border-text-primary/5 relative">
+      <header className="w-full max-w-7xl h-24 flex justify-between items-center border-b border-text-primary/5 relative">
         {/* Logo */}
-        <div className="text-3xl font-black tracking-tight text-accent-orange">
-          Agero.
+        <div className="text-3xl font-semibold tracking-tight text-accent-orange">
+          Ankit.
         </div>
 
         {/* Links */}
-        <nav className="hidden md:flex items-center gap-8 font-sans font-medium text-sm text-text-secondary/70">
+        <nav className="hidden md:flex items-center gap-8 font-sans font-medium text-sm text-text-secondary/70 translate-y-3">
           {navItems.map((item) => (
             <a
               key={item}
@@ -38,7 +53,7 @@ export function Hero() {
         {/* Contact Button */}
         <a
           href="#contact"
-          className="px-6 py-2 bg-[#2D2D30] text-[#ECEBE8] rounded-full text-sm font-semibold hover:bg-accent-orange transition-all duration-300 shadow-md hover:shadow-lg"
+          className="px-6 py-2 bg-[#2D2D30] text-[#ECEBE8] rounded-full text-sm font-semibold hover:bg-accent-orange transition-all duration-300 shadow-md hover:shadow-lg translate-y-0"
         >
           Contact
         </a>
@@ -57,7 +72,7 @@ export function Hero() {
         </div>
 
         {/* Big Heading */}
-        <h1 className="text-4xl sm:text-6xl md:text-[5rem] font-extrabold tracking-tight text-center leading-[1.2] max-w-6xl">
+        <h1 className="text-4xl sm:text-6xl md:text-[5rem] font-semibold tracking-tight text-center leading-[1.2] max-w-6xl">
           <span className="text-text-primary">Effortless </span>
           <span className="inline-flex items-center align-middle mx-1 md:mx-2 bg-transparent rounded-[2rem] w-12 h-18 md:w-16 md:h-24 overflow-hidden shadow-md hover:scale-105 transition-transform duration-300">
             <img src={stickerPhone} alt="Phone UI sticker" className="w-full h-full object-cover" />
