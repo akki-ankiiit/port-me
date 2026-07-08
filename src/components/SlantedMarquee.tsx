@@ -9,7 +9,7 @@ export function SlantedMarquee() {
   return (
     <section className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] bg-bg-primary overflow-hidden flex items-center justify-center select-none z-20 py-8">
       {/* Wrapper for absolute positioning and rotations */}
-      <div className="absolute w-[130%] -left-[15%] h-full flex items-center justify-center relative">
+      <div className="absolute w-[130%] -left-[15%] h-full flex items-center justify-center">
         
         {/* Strip 1: Dark Gray/Black Background, Animating Right, Rotated -3deg (Underneath) */}
         <div 
